@@ -53,7 +53,7 @@ resource "aws_security_group" "minecraft_ingress" {
 resource "aws_instance" "minecraft_server" {
   ami           = "ami-04e914639d0cca79a"
   instance_type = "t2.small"
-  key_name = "mykey"
+  key_name = aws_key_pair.generated_key.key_name
   vpc_security_group_ids = [aws_security_group.minecraft_ingress.id]
   
   provisioner "file" {
