@@ -20,7 +20,7 @@ resource "tls_private_key" "keypair" {
 
 resource "aws_key_pair" "generated_key" {
   key_name   = "mykey"
-  public_key = tls_private_key.keypair.public_key_openssh
+  public_key = tls_private_key.minecraftkey.public_key_openssh
 }
 
 
@@ -71,7 +71,7 @@ resource "aws_instance" "minecraft_server" {
   connection {
 	user = "ec2-user"
 	type = "ssh"
-	private_key = tls_private_key.keypair.private_key_pem
+	private_key = tls_private_key.minecraftkey.private_key_pem
 	host = aws_instance.minecraft_server.public_ip
   }
   
