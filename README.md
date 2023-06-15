@@ -20,9 +20,9 @@ More information on adding your credentials to this file can be found [here](htt
 2. Open a command line and browse to the directory you copied this repo's files to.
 3. Enter the command `terraform init` to initialize the current directory with Terraform.
 4. Enter the command `terraform apply` to apply the Terraform configuration, and begin creating the instance in AWS.
-4.1 If asked to confirm changes, enter `yes`
+	- If asked to confirm changes, enter `yes`
 5. Wait for this command to finish. It will take some time.
-5.1 Once complete, you should see output with the public IP. This will be the IP address needed to connect to the minecraft server.
+	- Once complete, you should see output with the public IP. This will be the IP address needed to connect to the minecraft server.
 
 ### To connect a Minecraft client to the sever
 - Use the public IP that was output from terraform. If forgotten, this can be found by running the following command `terraform output`
