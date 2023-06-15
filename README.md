@@ -29,3 +29,13 @@ More information on adding your credentials to this file can be found [here](htt
 - Use the public IP that was output from terraform. If forgotten, this can be found by running the following command `terraform output`
 - This guide has been set up using the latest version of the Minecraft Java releae. Be sure to use the Minecraft Java client to connect.
 
+### Resources Used
+- Terraform Developer Documentation - https://developer.hashicorp.com/terraform
+- Stack Overflow - https://stackoverflow.com/questions/49743220/how-do-i-create-an-ssh-key-in-terraform
+- ChatGPT - Provided assistance with service configuration: 
+ `screen -p 0 -S minecraft -X eval 'stuff "say Server is shutting down in 30 seconds..."\015'
+sleep 30
+screen -p 0 -S minecraft -X eval 'stuff "stop"\015
+sleep 10'" | sudo tee /etc/systemd/system/minecraft_shutdown.sh`
+ `ExecStart=/usr/bin/screen -DmS minecraft sudo java -Xms1G -Xmx2G -jar server.jar nogui
+ExecStop=/etc/systemd/system/minecraft_shutdown.sh`
