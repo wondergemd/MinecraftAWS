@@ -1,5 +1,12 @@
 # About 
 This repo will contain a guide and the nessessary terraform configuration to setup and configure an EC2 instance of an Amazon Linux 2023 server that will automatically create a service to contain the Minecraft Java server. The service will maintain the minecraft server at all times, allowing it to automatically start upon reboots of the Linux server/EC2 instance.
+
+## ZIP download
+- https://drive.google.com/file/d/19pFS2wgWvoB6Li8EC56CAIee8KCmPhgO/view?usp=sharing
+
+## Demo Video
+- https://media.oregonstate.edu/media/t/1_iplum402
+
 # Requirements:
 To use, you'll need an [AWS account](https://aws.amazon.com/). You'll also need to install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and the [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli). Follow the linked guides to do so. 
 
@@ -12,7 +19,7 @@ More information on adding your credentials to this file can be found [here](htt
 ### Diagram of pipeline.
     Terraform -> AWS EC2 Config
 			  -> SSH -> Bash Script -> Minecraft Installation
-									-> Minecraft Service setup
+						-> Minecraft Service setup
 
 ### Steps to run
 - Be sure to check the requirements and pre-configuration sections of this guide  before proceeding to these steps.
