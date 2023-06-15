@@ -13,14 +13,14 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "tls_private_key" "keypair" {
+resource "tls_private_key" "mckey" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
 resource "aws_key_pair" "generated_key" {
   key_name   = "mykey"
-  public_key = tls_private_key.minecraftkey.public_key_openssh
+  public_key = tls_private_key.mckey.public_key_openssh
 }
 
 
@@ -53,7 +53,7 @@ resource "aws_security_group" "minecraft_ingress" {
 resource "aws_instance" "minecraft_server" {
   ami           = "ami-04e914639d0cca79a"
   instance_type = "t2.small"
-  key_name = aws_key_pair.generated_key.key_name
+  key_name = "mykey"
   vpc_security_group_ids = [aws_security_group.minecraft_ingress.id]
   
   provisioner "file" {
@@ -71,7 +71,7 @@ resource "aws_instance" "minecraft_server" {
   connection {
 	user = "ec2-user"
 	type = "ssh"
-	private_key = tls_private_key.minecraftkey.private_key_pem
+	private_key = tls_private_key.mckey.private_key_pem
 	host = aws_instance.minecraft_server.public_ip
   }
   
