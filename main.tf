@@ -71,7 +71,7 @@ resource "aws_instance" "minecraft_server" {
   connection {
 	user = "ec2-user"
 	type = "ssh"
-	private_key = tls_private_key.example.private_key_pem
+	private_key = tls_private_key.keypair.private_key_pem
 	host = aws_instance.minecraft_server.public_ip
   }
   
